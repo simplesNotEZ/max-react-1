@@ -6,6 +6,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [formOpened, setFormOpened] = useState(false);
 
   // Below is method of creating just one slice of state, using useState with an object, versus creating three separate slices of state
   // const [userInput, setUserInput] = useState({
@@ -46,7 +47,27 @@ const ExpenseForm = (props) => {
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+
+    openCloseFormHandler();
   };
+
+  const openCloseFormHandler = () => {
+    setFormOpened((prevState) => {
+      return !prevState;
+    });
+  };
+
+  if (!formOpened) {
+    return (
+      <div className="new-expense__controls open-form__container">
+        <div className="new-expense__control">
+          <div className="open-form__div">
+            <button onClick={openCloseFormHandler}>Add New Expense</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -81,6 +102,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={openCloseFormHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
