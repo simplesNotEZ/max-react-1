@@ -35,19 +35,11 @@ const App = () => {
     });
   };
 
-  const filteredYearHandler = (year) => {
-    setExpenses((prevExpenses) => {
-      return prevExpenses.filter((expense) => {
-        return expense.date.getFullYear().toString() === year;
-      });
-    });
-  };
-
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <p>Is this also visible?</p>
-      <Expenses items={expenses} onYearFiltered={filteredYearHandler} />
+      <Expenses items={expenses} />
     </div>
   );
 };
