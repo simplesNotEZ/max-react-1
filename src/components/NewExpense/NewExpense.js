@@ -9,7 +9,7 @@ const NewExpense = (props) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    // console.log("%c expenseData", "color: green;", expenseData);
+    // this function is from App.js
     props.onAddExpense(expenseData);
   };
 
