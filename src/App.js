@@ -24,9 +24,14 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("%c In App.js, expense: ", "color: fuchsia;", expense);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <p>Is this also visible?</p>
       <Expenses items={expenses} />
     </div>
