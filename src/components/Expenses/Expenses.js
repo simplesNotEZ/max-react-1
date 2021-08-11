@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "../UI/Card.js";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 
 // arrow-function syntax
@@ -31,6 +32,7 @@ const Expenses = (props) => {
         defaultYear={selectedYear}
         onYearSelected={filteredYearHandler}
       />
+      <ExpensesChart expenses={filteredExpenses} />
       <ExpensesList items={filteredExpenses} />
     </Card>
   );
